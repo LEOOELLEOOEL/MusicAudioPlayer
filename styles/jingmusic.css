@@ -1,0 +1,60 @@
+body{
+    background: url("../images/background.jpg");
+}
+#mscPlrCtn{
+    height: 430px;
+    width: 430px;
+    margin: 0 auto;
+    position: relative;
+}
+#mscPlr{
+    width: 300px;
+    height: 300px;
+    margin: 65px;
+    background: url("../images/xuezhiqian.jpg") no-repeat;
+    position: absolute;
+}
+@-webkit-keyframes rCD {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+
+}
+.rotateCD{
+    -webkit-animation:rCD 8s infinite linear;
+}
+#mscPlrMask{
+    width: 100%;
+    height: 100%;
+    background: url("../images/playerMask.png") no-repeat;
+    position: absolute;
+}
+#playCtl,#playBtn{
+    width: 69px;
+    height: 69px;
+    background: url("../images/playCtl.png") no-repeat;
+    background-position: -200px 0;
+    opacity: 0;
+    position: absolute;
+}
+#playCtl{
+    left: 50%;
+    top: 50%;
+    margin-left: -34px;
+    margin-top: -34px;
+}
+#playBtn.play{
+    background-position: 0 0;
+}
+#playBtn.pause{
+    background-position: -100px 0;
+}
+.rt{
+    -webkit-animation-play-state:running ;
+}
+.stRt{
+    -webkit-animation-play-state: paused;
+}

@@ -1,0 +1,45 @@
+/**
+ * Created by 李豪 on 2015/11/9 0009.
+ */
+var omusic;
+$(function(){
+    // 获取omusic对象
+    omusic=$("#music")[0];
+    //设置CD的hover事件
+  $("#mscPlrCtn").hover(function(){
+  //显示CD孔以及按钮
+      $("#playBtn,#playCtl").css({"opacity":"1"});
+  },function(){
+      //隐藏CD孔以及按钮
+      $("#playBtn,#playCtl").css({"opacity":"0"});
+  }
+  );
+    $("#playBtn").click(function(){
+        //动态切换play和pause两种状态
+            $("#playBtn").toggleClass("play").toggleClass("pause");
+        //动态切换旋转
+        $("mscPlr").toggleClass("rotateCD");
+        //判断是否加载旋转动画
+        if($("#mscPlr[class*=rotateCD]").length==0){
+            $("#mscPlr").addClass("rotateCD");
+        }
+        //音频是暂停状态
+        if(omusic.paused){
+            //按钮转换成暂停按钮
+            //$("#playBtn").removeClass("play").addClass("pause");
+            $("#mscPlr").addClass("rt").removeClass("stRt");
+            omusic.play();
+        }
+        //音频是播放状态
+        else{
+            //按钮切换成暂停
+            //$("#playBtn").removeClass("pause").addClass("play");
+            $("#mscPlr").addClass("stRt").removeClass("rt");
+            omusic.pause();
+        }
+    });
+    $(omusic).bind("end",function(){
+        $("#playBtn").removeClass().addClass("play")
+        $("#mscPlr").removeClass();
+    });
+});
